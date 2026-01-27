@@ -33,7 +33,7 @@ export interface ProcessingState {
   isAdminOpen: boolean;
 }
 
-export interface GeminiResponse {
+export interface AIResponse {
   text: string;
 }
 

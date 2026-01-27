@@ -174,7 +174,7 @@ const App: React.FC = () => {
                       type="text" 
                       value={state.topic}
                       onChange={(e) => setState(prev => ({ ...prev, topic: e.target.value }))}
-                      placeholder="Например: Основы дизайна, Введение в Gemini..."
+                      placeholder="Например: Основы дизайна, Введение в нейросети..."
                       className="w-full px-6 py-4 rounded-2xl bg-white border border-gray-100 focus:outline-none focus:ring-4 focus:ring-mono-lavender/30 transition-all text-mono-text placeholder:text-gray-300"
                    />
                  </div>

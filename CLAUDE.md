@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Моно-ассистент is a web application that transforms raw transcriptions into structured study notes (конспекты) using Google's Gemini AI. Russian language interface.
+Моно-ассистент is a web application that transforms raw transcriptions into structured study notes (конспекты) using AI via OpenRouter. Russian language interface.
 
 ## Development Commands
 
@@ -15,7 +15,7 @@ npm run build        # Production build to dist/
 npm run preview      # Preview production build
 ```
 
-**Prerequisite:** Set `GEMINI_API_KEY` in `.env.local`
+**Prerequisite:** Set `OPENROUTER_API_KEY` in `.env.local`
 
 ## Architecture
 
@@ -24,17 +24,17 @@ npm run preview      # Preview production build
 - Vite 6 build tool
 - Tailwind CSS (via CDN with custom theme in index.html)
 - jsPDF for PDF generation
-- Google Gemini API (`gemini-3-flash-preview` model)
+- OpenRouter API (`xiaomi/mimo-v2-flash` model)
 
 ### Data Flow
 1. User uploads .txt file → DropZone component
 2. User selects topic and compression mode (STANDARD/DETAILED)
 3. App.tsx orchestrates status flow: IDLE → ANALYZING → STRUCTURING → REVIEW → COMPLETED
-4. geminiService calls Gemini API with dynamic prompts from localStorage
+4. aiService calls OpenRouter API with dynamic prompts from localStorage
 5. ResultViewer displays Markdown output with PDF download options (CLASSIC/ACADEMIC/CREATIVE styles)
 
 ### Service Layer (`services/`)
-- **geminiService.ts** - Gemini API integration, prompt construction, token usage logging
+- **aiService.ts** - OpenRouter API integration, prompt construction, token usage logging
 - **pdfService.ts** - Markdown parsing and PDF rendering with three visual styles
 - **storageService.ts** - LocalStorage wrapper for stats and configurable prompts
 

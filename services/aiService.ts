@@ -2,7 +2,7 @@
 import { CompressionMode } from "../types";
 import { getPromptConfig, saveUsageStats } from "./storageService";
 
-const DEFAULT_MODEL = 'google/gemini-2.0-flash-001';
+const DEFAULT_MODEL = 'xiaomi/mimo-v2-flash';
 
 const buildPrompt = (topic: string, transcript: string, mode: CompressionMode) => {
   // Fetch dynamic configuration
