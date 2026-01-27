@@ -27,7 +27,7 @@ interface OpenRouterResponse {
   };
 }
 
-const DEFAULT_MODEL = 'google/gemini-2.0-flash-001';
+const DEFAULT_MODEL = 'xiaomi/mimo-v2-flash';
 
 export default async function handler(
   req: VercelRequest,
