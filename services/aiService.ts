@@ -2,7 +2,7 @@
 import { CompressionMode } from "../types";
 import { getPromptConfig, saveUsageStats } from "./storageService";
 
-const DEFAULT_MODEL = 'xiaomi/mimo-v2-flash';
+const DEFAULT_MODEL = 'deepseek/deepseek-v3.2';
 
 const buildPrompt = (topic: string, transcript: string, mode: CompressionMode) => {
   // Fetch dynamic configuration
