@@ -10,6 +10,9 @@ interface OpenRouterRequest {
   messages: OpenRouterMessage[];
   max_tokens?: number;
   temperature?: number;
+  reasoning?: {
+    enabled: boolean;
+  };
 }
 
 interface OpenRouterResponse {
@@ -27,7 +30,7 @@ interface OpenRouterResponse {
   };
 }
 
-const DEFAULT_MODEL = 'xiaomi/mimo-v2-flash';
+const DEFAULT_MODEL = 'deepseek/deepseek-v3.2';
 
 export default async function handler(
   req: VercelRequest,
@@ -60,7 +63,10 @@ export default async function handler(
         }
       ],
       max_tokens: 16000,
-      temperature: 0.7
+      temperature: 0.7,
+      reasoning: {
+        enabled: true
+      }
     };
 
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
