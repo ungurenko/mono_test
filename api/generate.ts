@@ -62,7 +62,7 @@ export default async function handler(
           content: prompt
         }
       ],
-      max_tokens: 16000,
+      max_tokens: 8000,
       temperature: 0.7,
       reasoning: {
         enabled: true
