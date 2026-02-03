@@ -2,7 +2,7 @@
 import { CompressionMode } from "../types";
 import { getPromptConfig, saveUsageStats } from "./storageService";
 
-const DEFAULT_MODEL = 'deepseek/deepseek-v3.2';
+const DEFAULT_MODEL = 'openai/gpt-oss-120b';
 
 const buildPrompt = (topic: string, transcript: string, mode: CompressionMode) => {
   // Fetch dynamic configuration

@@ -10,9 +10,6 @@ interface OpenRouterRequest {
   messages: OpenRouterMessage[];
   max_tokens?: number;
   temperature?: number;
-  reasoning?: {
-    enabled: boolean;
-  };
 }
 
 interface OpenRouterResponse {
@@ -30,7 +27,7 @@ interface OpenRouterResponse {
   };
 }
 
-const DEFAULT_MODEL = 'deepseek/deepseek-v3.2';
+const DEFAULT_MODEL = 'openai/gpt-oss-120b';
 
 export default async function handler(
   req: VercelRequest,
@@ -62,11 +59,8 @@ export default async function handler(
           content: prompt
         }
       ],
-      max_tokens: 8000,
-      temperature: 0.7,
-      reasoning: {
-        enabled: true
-      }
+      max_tokens: 16000,
+      temperature: 0.7
     };
 
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
