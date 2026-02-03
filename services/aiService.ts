@@ -2,7 +2,7 @@
 import { CompressionMode } from "../types";
 import { getPromptConfig, saveUsageStats } from "./storageService";
 
-const DEFAULT_MODEL = 'openai/gpt-oss-120b';
+const DEFAULT_MODEL = 'x-ai/grok-4.1-fast';
 
 const buildPrompt = (topic: string, transcript: string, mode: CompressionMode) => {
   // Fetch dynamic configuration

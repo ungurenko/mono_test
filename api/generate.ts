@@ -27,7 +27,7 @@ interface OpenRouterResponse {
   };
 }
 
-const DEFAULT_MODEL = 'openai/gpt-oss-120b';
+const DEFAULT_MODEL = 'x-ai/grok-4.1-fast';
 
 export default async function handler(
   req: VercelRequest,
