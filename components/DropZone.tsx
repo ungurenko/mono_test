@@ -82,11 +82,11 @@ const DropZone: React.FC<DropZoneProps> = ({ onFileLoaded, disabled }) => {
       </div>
 
       <h3 className="text-2xl font-semibold text-mono-text mb-2">
-        {isDragActive ? "Отпускайте..." : "Загрузка транскрипции"}
+        {isDragActive ? "Отпускайте..." : "Загрузите текст"}
       </h3>
-      
+
       <p className="text-gray-400 font-medium max-w-xs mx-auto">
-        Перетащите .txt файл сюда или кликните для выбора.
+        Перетащите .txt файл с текстом урока или лекции
       </p>
 
       {!disabled && (
