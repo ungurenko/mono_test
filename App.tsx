@@ -125,10 +125,10 @@ const App: React.FC = () => {
         {!inReviewMode && (
           <div className="text-center space-y-2 animate-in fade-in slide-in-from-top-4 duration-500">
             <h1 className="text-4xl md:text-5xl font-bold text-mono-text tracking-tight">
-              Моно-ассистент
+              Конспектор
             </h1>
             <p className="text-gray-400 font-medium">
-              Превращаем шум в ясность.
+              Превращает текст в структурированные учебные заметки
             </p>
           </div>
         )}
@@ -278,7 +278,7 @@ const App: React.FC = () => {
       
       {!inReviewMode && (
         <div className="absolute bottom-6 text-gray-300 text-xs font-medium">
-          Моно-ассистент • Создано для ясности
+          Конспектор • Текст → Конспект
         </div>
       )}
     </div>
