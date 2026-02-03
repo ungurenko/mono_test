@@ -46,6 +46,10 @@ export const analyzeTranscript = async (text: string, topic: string, mode: Compr
   try {
     const prompt = buildPrompt(topic, text, mode);
 
+    // Add timeout to prevent hanging requests (90 seconds to account for Vercel's 60s max)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 90000);
+
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
@@ -54,8 +58,9 @@ export const analyzeTranscript = async (text: string, topic: string, mode: Compr
       body: JSON.stringify({
         prompt,
         model: DEFAULT_MODEL
-      })
-    });
+      }),
+      signal: controller.signal
+    }).finally(() => clearTimeout(timeoutId));
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
@@ -83,6 +88,12 @@ export const analyzeTranscript = async (text: string, topic: string, mode: Compr
     return data.text;
   } catch (error) {
     console.error("AI API Error:", error);
+
+    // Handle timeout errors specifically
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error('Превышено время ожидания ответа от AI. Попробуйте сократить текст или повторить позже.');
+    }
+
     throw error;
   }
 };
